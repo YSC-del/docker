@@ -5,3 +5,8 @@ xhofe/alist:latest
 #支持指定架构
 --platform=linux/arm64 xiaoyaliu/alist
 jellyfin/jellyfin
+linuxserver/jackett
+linuxserver/qbittorrent
+allanpk716/chinesesubfinder
+diluka/nas-tools:2.9.1
+xhofe/alist
