@@ -11,3 +11,9 @@ allanpk716/chinesesubfinder
 diluka/nas-tools:2.9.1
 xhofe/alist
 allanpk716/chinesesubfinder:latest-lite
+HomeAssistant
+piwigo
+Resilio_sync
+TinyMediaManager
+Heimdall
+cloud9
