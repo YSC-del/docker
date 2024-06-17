@@ -12,3 +12,9 @@ diluka/nas-tools:2.9.1
 xhofe/alist
 allanpk716/chinesesubfinder:latest-lite
 Portainer
+MediaWiki
+heimdall
+calibre-web
+WordPress
+alpine
+Wekan
