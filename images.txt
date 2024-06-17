@@ -67,4 +67,9 @@ scratch148、sl
 clefos
 euleros
 alt
-
+Transmission
+Nyanmisaka/jellyfin
+BookBrowser
+TaleBook
+LANraragi
+heimdall
