@@ -21,3 +21,4 @@ clojure
 neurodebian
 swift 
 Nyanmisaka/jellyfin
+douban-tool
