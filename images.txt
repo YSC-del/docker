@@ -20,3 +20,11 @@ clojure
 neurodebian
 swift 
 Nyanmisaka/jellyfin
+centos
+fedora
+oraclelinux
+grafana/grafana
+pihole/pihole
+tensorflow/tensorflow
+kalilinux//kali-rolling
+plexinc/pms-docker
