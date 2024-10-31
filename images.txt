@@ -28,3 +28,4 @@ pihole/pihole
 tensorflow/tensorflow
 kalilinux//kali-rolling
 plexinc/pms-docker
+ntfy
