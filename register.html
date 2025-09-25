@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>蛋糕商城 - 用户注册</title>
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="#">蛋糕商城</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">首页</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">商品分类</a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="#">生日蛋糕</a>
+                            <a class="dropdown-item" href="#">芝士蛋糕</a>
+                            <a class="dropdown-item" href="#">慕斯蛋糕</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">更多分类</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">热销</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">新品</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="#">注册</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">登录</a></li>
+                </ul>
+
+                <!-- 搜索与购物车入口 -->
+                <form class="form-inline my-2 my-lg-0 mr-3" onsubmit="return false;">
+                    <input class="form-control mr-sm-2" type="search" placeholder="搜索蛋糕/口味/场景" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">搜索</button>
+                </form>
+                <a href="#" class="btn btn-primary">
+                    <span class="mr-1">🛒</span> 购物车
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主体注册表单 -->
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xl-7">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-white">
+                            <h5 class="mb-0">用户注册</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="registerForm" novalidate>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="username">用户名</label>
+                                        <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名" required>
+                                        <div class="invalid-feedback">用户名为 3-16 个字符（字母/数字/下划线）。</div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">邮箱</label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                                        <div class="invalid-feedback">请输入有效的邮箱地址。</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="password">密码</label>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="至少 6 位，包含字母和数字" required>
+                                        <div class="invalid-feedback">密码至少 6 位，并包含字母和数字。</div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="receiver">收货人</label>
+                                        <input type="text" class="form-control" id="receiver" name="receiver" placeholder="请输入收货人姓名" required>
+                                        <div class="invalid-feedback">请填写收货人姓名。</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="phone">电话</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="手机号码" required>
+                                        <div class="invalid-feedback">请输入有效的手机号码。</div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="address">地址</label>
+                                        <input type="text" class="form-control" id="address" name="address" placeholder="省/市/区/详细地址" required>
+                                        <div class="invalid-feedback">请填写详细地址。</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="agree" required>
+                                    <label class="form-check-label" for="agree">我已阅读并同意《用户服务协议》</label>
+                                    <div class="invalid-feedback">请先阅读并同意服务协议。</div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">注册</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="border-top py-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <h6 class="text-uppercase text-muted">友情链接</h6>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#">甜蜜烘焙屋</a></li>
+                        <li class="list-inline-item"><a href="#">巧克力工坊</a></li>
+                        <li class="list-inline-item"><a href="#">鲜果供应</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <div>© 2025 蛋糕商城 Cake Shop. 保留所有权利.</div>
+                    <div class="small text-muted">备案号：粤ICP备00000000号-0</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS: jQuery + Popper + Bootstrap 4 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+YQ4/9IY1SwEJvG1J8a1G1zEoZK0s8AjtKq6HgMHpmYF1l38aZ9spY+FctfKZ3c3" crossorigin="anonymous"></script>
+    <script src="assets/js/validation.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+/* 基础微调 */
+body {
+  background-color: #fafafa;
+}
+
+.navbar-brand {
+  letter-spacing: 1px;
+}
+
+/* 表单卡片阴影与间距 */
+.card {
+  border-radius: 0.5rem;
+}
+
+.card-header {
+  border-bottom: 1px solid #eee;
+}
+
+/* 页脚样式 */
+footer a {
+  color: #6c757d;
+}
+
+footer a:hover {
+  color: #343a40;
+  text-decoration: none;
+}
+
+/* 自定义校验状态样式微调 */
+.was-validated .form-control:invalid, .form-control.is-invalid {
+  background-image: none;
+}
+
+.was-validated .form-control:valid, .form-control.is-valid {
+  background-image: none;
+}
+
