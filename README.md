@@ -1,3 +1,14 @@
+Cake Shop - Registration Page
+
+How to run:
+- Open `register.html` in a browser (no build needed).
+- Internet connection required to load Bootstrap CDN assets.
+
+Structure:
+- `register.html`: Main page markup
+- `assets/css/styles.css`: Custom styles
+- `assets/js/validation.js`: Form validation and interactions
+
 # Docker Images Pusher
 
 使用Github Action将国外的Docker镜像转存到阿里云私有仓库，供国内服务器使用，免费易用<br>
