@@ -1,77 +1,139 @@
-# Docker Images Pusher
+# 蛋糕商城用户注册页面
 
-使用Github Action将国外的Docker镜像转存到阿里云私有仓库，供国内服务器使用，免费易用<br>
-支持DockerHub, gcr.io, k8s.io, quay.io, ghcr.io等任意仓库
+这是一个使用 HTML + CSS + JavaScript + Bootstrap 开发的蛋糕商城用户注册页面项目。
 
-视频教程：https://www.bilibili.com/video/BV1Zn4y19743/
+## 项目结构
 
-作者：**技术爬爬虾**<br>
-B站，抖音，Youtube全网同名，转载请注明作者<br>
-
-## 使用方式
-
-
-### 配置阿里云
-登录阿里云容器镜像服务<br>
-https://cr.console.aliyun.com/<br>
-启用个人实例，创建一个命名空间（**ALIYUN_NAME_SPACE**）
-![](/doc/命名空间.png)
-
-访问凭证–>获取环境变量<br>
-用户名（**ALIYUN_REGISTRY_USER**)<br>
-密码（**ALIYUN_REGISTRY_PASSWORD**)<br>
-仓库地址（**ALIYUN_REGISTRY**）<br>
-
-![](/doc/用户名密码.png)
-
-
-### Fork本项目
-Fork本项目<br>
-#### 启动Action
-进入您自己的项目，点击Action，启用Github Action功能<br>
-#### 配置环境变量
-进入Settings->Secret and variables->Actions->New Repository secret
-![](doc/配置环境变量.png)
-将上一步的 ALIYUN_NAME_SPACE,ALIYUN_REGISTRY_USER，ALIYUN_REGISTRY_PASSWORD，ALIYUN_REGISTRY
-的值配置成环境变量
-
-### 添加镜像
-打开images.txt文件，添加你想要的镜像 
-可以加tag，也可以不用(默认latest)<br>
-可添加 --platform=xxxxx 的参数指定镜像架构<br>
-可使用 k8s.gcr.io/kube-state-metrics/kube-state-metrics 格式指定私库<br>
-可使用 #开头作为注释<br>
-![](doc/images.png)
-文件提交后，自动进入Github Action构建
-
-### 使用镜像
-回到阿里云，镜像仓库，点击任意镜像，可查看镜像状态。(可以改成公开，拉取镜像免登录)
-![](doc/开始使用.png)
-
-在国内服务器pull镜像：<br>
 ```
-docker pull registry.cn-hangzhou.aliyuncs.com/shrimp-images/alpine
+├── index.html          # 首页演示页面
+├── register.html       # 用户注册页面
+├── styles.css          # 自定义样式文件
+├── script.js          # JavaScript功能文件
+└── README.md          # 项目说明文档
 ```
-registry.cn-hangzhou.aliyuncs.com 即 ALIYUN_REGISTRY<br>
-shrimp-images 即 ALIYUN_NAME_SPACE<br>
-alpine 即阿里云中显示的镜像名<br>
 
-### 多架构
-需要在images.txt中用 --platform=xxxxx手动指定镜像架构
-指定后的架构会以前缀的形式放在镜像名字前面
-![](doc/多架构.png)
+## 功能特性
 
-### 镜像重名
-程序自动判断是否存在名称相同, 但是属于不同命名空间的情况。
-如果存在，会把命名空间作为前缀加在镜像名称前。
-例如:
-```
-xhofe/alist
-xiaoyaliu/alist
-```
-![](doc/镜像重名.png)
+### 🎨 界面设计
+- **现代化UI设计**：采用渐变色彩和卡片式布局
+- **响应式布局**：支持桌面端、平板和手机端
+- **动画效果**：页面加载动画、悬停效果、过渡动画
+- **图标支持**：使用Font Awesome图标库
 
-### 定时执行
-修改/.github/workflows/docker.yaml文件
-添加 schedule即可定时执行(此处cron使用UTC时区)
-![](doc/定时执行.png)
+### 🧭 导航栏功能
+- **响应式导航菜单**：支持移动端折叠菜单
+- **搜索框**：支持关键词搜索功能
+- **购物车入口**：显示购物车商品数量
+- **下拉菜单**：商品分类下拉菜单，支持鼠标悬停效果
+
+### 📝 注册表单功能
+- **完整表单字段**：
+  - 用户名（3-20位，支持中文、英文、数字、下划线）
+  - 邮箱地址（标准邮箱格式验证）
+  - 密码（至少8位，包含字母和数字）
+  - 确认密码（与密码一致性验证）
+  - 收货人（2-10位，支持中文和英文）
+  - 联系电话（11位手机号码验证）
+  - 收货地址（10-100位详细地址）
+  - 服务条款同意
+
+### ✅ 表单验证
+- **实时验证**：输入时即时验证并显示结果
+- **密码强度验证**：确保密码包含字母和数字
+- **邮箱格式验证**：标准邮箱格式检查
+- **手机号验证**：11位中国大陆手机号格式
+- **密码一致性**：确认密码与密码一致性检查
+- **必填项验证**：所有必填项完整性检查
+
+### 🔧 交互功能
+- **密码显示/隐藏**：点击眼睛图标切换密码可见性
+- **表单自动保存**：本地存储表单数据，防止意外丢失
+- **提交状态反馈**：加载动画和成功/错误提示
+- **键盘导航**：支持Tab键导航和Enter键提交
+- **ESC键关闭**：按ESC键关闭下拉菜单
+
+### 📱 响应式设计
+- **移动端优化**：针对手机屏幕优化布局
+- **平板适配**：中等屏幕尺寸的布局调整
+- **桌面端体验**：大屏幕的最佳显示效果
+
+## 技术栈
+
+- **HTML5**：语义化标签，表单验证属性
+- **CSS3**：Flexbox布局，Grid布局，动画效果
+- **JavaScript ES6+**：现代JavaScript语法
+- **Bootstrap 5**：响应式框架，组件库
+- **Font Awesome 6**：图标库
+
+## 使用方法
+
+1. **直接打开**：
+   - 在浏览器中打开 `index.html` 查看演示
+   - 点击"查看注册页面"按钮进入注册页面
+
+2. **本地服务器**（推荐）：
+   ```bash
+   # 使用Python启动本地服务器
+   python -m http.server 8000
+   
+   # 或使用Node.js
+   npx http-server
+   ```
+
+3. **访问地址**：
+   - 首页：`http://localhost:8000/index.html`
+   - 注册页面：`http://localhost:8000/register.html`
+
+## 浏览器兼容性
+
+- ✅ Chrome 60+
+- ✅ Firefox 55+
+- ✅ Safari 12+
+- ✅ Edge 79+
+- ✅ 移动端浏览器
+
+## 开发说明
+
+### 文件说明
+
+1. **index.html**：首页演示页面，展示项目介绍和功能说明
+2. **register.html**：用户注册页面，包含完整的注册表单
+3. **styles.css**：自定义样式文件，包含所有页面样式
+4. **script.js**：JavaScript功能文件，包含表单验证和交互逻辑
+
+### 样式特点
+
+- 使用CSS变量和现代布局技术
+- 渐变背景和卡片式设计
+- 平滑的过渡动画效果
+- 响应式网格布局
+
+### JavaScript功能
+
+- 模块化的代码结构
+- 事件委托和性能优化
+- 本地存储数据持久化
+- 表单验证和用户反馈
+
+## 扩展功能
+
+项目支持以下扩展功能：
+
+- 🔐 用户登录页面
+- 🛒 购物车功能
+- 📦 商品展示页面
+- 💳 支付集成
+- 📱 移动端APP
+- 🌐 多语言支持
+
+## 许可证
+
+本项目仅用于学习和演示目的。
+
+## 联系方式
+
+如有问题或建议，请联系开发团队。
+
+---
+
+**蛋糕商城** - 让生活更甜蜜 🎂
