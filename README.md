@@ -1,77 +1,140 @@
-# Docker Images Pusher
+# 蛋糕商城用户注册页面
 
-使用Github Action将国外的Docker镜像转存到阿里云私有仓库，供国内服务器使用，免费易用<br>
-支持DockerHub, gcr.io, k8s.io, quay.io, ghcr.io等任意仓库
+这是一个使用HTML、CSS、JavaScript和Bootstrap框架开发的蛋糕商城用户注册页面。
 
-视频教程：https://www.bilibili.com/video/BV1Zn4y19743/
+## 项目特性
 
-作者：**技术爬爬虾**<br>
-B站，抖音，Youtube全网同名，转载请注明作者<br>
+### 🎨 界面设计
+- 现代化的响应式设计
+- 美观的渐变色彩搭配
+- 流畅的动画效果
+- 移动端友好的布局
 
-## 使用方式
+### 🧩 功能组件
+- **导航栏**: 包含首页、商品分类、热销、新品、注册、登录等链接
+- **搜索功能**: 带有搜索框和购物车入口
+- **注册表单**: 完整的用户信息收集
+- **页脚**: 友情链接和版权信息
 
+### 📋 表单字段
+- 用户名（3-20个字符，支持中英文数字）
+- 邮箱地址（格式验证）
+- 密码（6-20位，包含字母和数字）
+- 确认密码（与密码匹配验证）
+- 收货人姓名（2-10个字符）
+- 联系电话（11位手机号验证）
+- 收货地址（省市区联动选择 + 详细地址）
+- 用户协议同意确认
 
-### 配置阿里云
-登录阿里云容器镜像服务<br>
-https://cr.console.aliyun.com/<br>
-启用个人实例，创建一个命名空间（**ALIYUN_NAME_SPACE**）
-![](/doc/命名空间.png)
+### ✅ 表单验证
+- 实时输入验证
+- 详细的错误提示信息
+- 视觉反馈（成功/错误状态）
+- 防重复提交保护
 
-访问凭证–>获取环境变量<br>
-用户名（**ALIYUN_REGISTRY_USER**)<br>
-密码（**ALIYUN_REGISTRY_PASSWORD**)<br>
-仓库地址（**ALIYUN_REGISTRY**）<br>
+### 🎯 交互效果
+- Bootstrap下拉菜单（使用data-toggle="dropdown"）
+- 密码显示/隐藏切换
+- 地址三级联动选择
+- 搜索功能
+- 购物车计数器
+- 平滑滚动效果
 
-![](/doc/用户名密码.png)
+## 文件结构
 
-
-### Fork本项目
-Fork本项目<br>
-#### 启动Action
-进入您自己的项目，点击Action，启用Github Action功能<br>
-#### 配置环境变量
-进入Settings->Secret and variables->Actions->New Repository secret
-![](doc/配置环境变量.png)
-将上一步的 ALIYUN_NAME_SPACE,ALIYUN_REGISTRY_USER，ALIYUN_REGISTRY_PASSWORD，ALIYUN_REGISTRY
-的值配置成环境变量
-
-### 添加镜像
-打开images.txt文件，添加你想要的镜像 
-可以加tag，也可以不用(默认latest)<br>
-可添加 --platform=xxxxx 的参数指定镜像架构<br>
-可使用 k8s.gcr.io/kube-state-metrics/kube-state-metrics 格式指定私库<br>
-可使用 #开头作为注释<br>
-![](doc/images.png)
-文件提交后，自动进入Github Action构建
-
-### 使用镜像
-回到阿里云，镜像仓库，点击任意镜像，可查看镜像状态。(可以改成公开，拉取镜像免登录)
-![](doc/开始使用.png)
-
-在国内服务器pull镜像：<br>
 ```
-docker pull registry.cn-hangzhou.aliyuncs.com/shrimp-images/alpine
+/workspace/
+├── index.html          # 主HTML文件
+├── styles.css          # 自定义CSS样式
+├── script.js           # JavaScript功能
+└── README.md          # 项目说明文档
 ```
-registry.cn-hangzhou.aliyuncs.com 即 ALIYUN_REGISTRY<br>
-shrimp-images 即 ALIYUN_NAME_SPACE<br>
-alpine 即阿里云中显示的镜像名<br>
 
-### 多架构
-需要在images.txt中用 --platform=xxxxx手动指定镜像架构
-指定后的架构会以前缀的形式放在镜像名字前面
-![](doc/多架构.png)
+## 技术栈
 
-### 镜像重名
-程序自动判断是否存在名称相同, 但是属于不同命名空间的情况。
-如果存在，会把命名空间作为前缀加在镜像名称前。
-例如:
+- **HTML5**: 语义化标签结构
+- **CSS3**: 自定义样式和动画
+- **JavaScript ES6+**: 表单验证和交互功能
+- **Bootstrap 5.3**: 响应式框架和组件
+- **Bootstrap Icons**: 图标库
+
+## 使用方法
+
+1. 直接在浏览器中打开 `index.html` 文件
+2. 或者使用本地服务器运行项目
+
+### 使用本地服务器（推荐）
+```bash
+# 使用Python
+python -m http.server 8000
+
+# 使用Node.js
+npx serve .
+
+# 使用PHP
+php -S localhost:8000
 ```
-xhofe/alist
-xiaoyaliu/alist
-```
-![](doc/镜像重名.png)
 
-### 定时执行
-修改/.github/workflows/docker.yaml文件
-添加 schedule即可定时执行(此处cron使用UTC时区)
-![](doc/定时执行.png)
+然后在浏览器中访问 `http://localhost:8000`
+
+## 功能说明
+
+### 导航栏功能
+- 响应式导航菜单
+- 商品分类下拉菜单
+- 搜索框和购物车入口
+- 移动端汉堡菜单
+
+### 表单验证规则
+- **用户名**: 3-20个字符，支持中英文和数字
+- **邮箱**: 标准邮箱格式验证
+- **密码**: 6-20位，必须包含字母和数字
+- **手机号**: 11位中国大陆手机号格式
+- **地址**: 省市区三级联动选择
+
+### 交互特效
+- 输入框获得焦点时的动画效果
+- 按钮悬停和点击动画
+- 表单提交时的加载状态
+- 成功/错误消息提示
+
+## 浏览器兼容性
+
+- Chrome 60+
+- Firefox 55+
+- Safari 12+
+- Edge 79+
+
+## 自定义配置
+
+### 颜色主题
+在 `styles.css` 文件的 `:root` 选择器中修改CSS变量：
+
+```css
+:root {
+    --primary-color: #e91e63;    /* 主色调 */
+    --secondary-color: #ff4081;  /* 辅助色 */
+    --accent-color: #ffc107;     /* 强调色 */
+}
+```
+
+### 验证规则
+在 `script.js` 文件的 `validationRules` 对象中修改验证规则。
+
+## 注意事项
+
+1. 项目使用CDN加载Bootstrap和图标库，需要网络连接
+2. 表单提交目前是模拟功能，实际项目需要配置后端接口
+3. 地址数据是示例数据，实际使用需要完整的地址库
+
+## 开发建议
+
+- 可以集成真实的地址API（如高德地图API）
+- 添加图片验证码功能
+- 集成短信验证码
+- 添加社交账号登录选项
+- 优化SEO和无障碍访问
+
+## 许可证
+
+MIT License
